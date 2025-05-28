@@ -1,0 +1,101 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #2d3436;
+            text-align: center;
+        }
+
+        header {
+            background-color: #0984e3;
+            /* Blue background */
+            color: white;
+            padding: 80px 0;
+            font-size: 2.2em;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            color: #ffeb3b;
+            /* Yellow title text */
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        main {
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #00cec9;
+            color: white;
+            padding: 15px 30px;
+            margin: 20px;
+            border-radius: 50px;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #01a3a4;
+            transform: scale(1.05);
+        }
+
+        footer {
+            padding: 20px;
+            background-color: #ffffff;
+            /* White footer */
+            color: #0984e3;
+            /* Blue text */
+            font-size: 1.2em;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin-top: 10px;
+        }
+
+        footer a {
+            color: #0984e3;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🐾 Welcome to the Pet Adoption Portal 🐾</h1>
+        <p>Find your perfect furry friend or help a pet find a new home.</p>
+    </header>
+
+    <main>
+        <a href="{{ url_for('view_pets') }}" class="btn">View Available Pets</a>
+        <a href="{{ url_for('admin_dashboard') }}" class="btn">Admin Dashboard</a>
+    </main>
+
+    <footer>
+        <p>Made with ❤️ for pet lovers.</p>
+        <p><a href="https://www.petfinder.com">Learn more about adoption</a></p>
+    </footer>
+
+</body>
+
+</html>

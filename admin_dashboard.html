@@ -1,0 +1,103 @@
+<!-- templates/admin_dashboard.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #dfe6e9;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2d3436;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-btn {
+            background-color: #6c5ce7;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .dashboard-btn:hover {
+            background-color: #5a4bcf;
+        }
+
+        table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #0984e3;
+            color: white;
+        }
+
+        a {
+            color: #0984e3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>📋 Admin Dashboard - Manage Pets</h2>
+    <a href="{{ url_for('add_pet') }}" class="dashboard-btn">➕ Add New Pet</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Breed</th>
+                <th>Age</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pet in pets %}
+            <tr>
+                <td>{{ pet.Name }}</td>
+                <td>{{ pet.Species }}</td>
+                <td>{{ pet.Breed }}</td>
+                <td>{{ pet.Age }}</td>
+                <td>{{ pet.Status }}</td>
+                <td>
+                    <a href="{{ url_for('edit_pet', pet_id=pet.PetID) }}">Edit</a> |
+                    <a href="{{ url_for('delete_pet', pet_id=pet.PetID) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('adoption_requests') }}" class="button">View Adoption Requests</a>
+    <div style="position: absolute; bottom: 20px; left: 20px;">
+        <a href="{{ url_for('home') }}"
+            style="background-color: #34495e; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Back</a>
+    </div>
+
+</body>
+
+</html>
